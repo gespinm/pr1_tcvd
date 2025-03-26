@@ -1,36 +1,25 @@
 ## Català
 
-EXPLAIN WHAT THIS SCRIPT DOES HERE
+### Integrants del grup:
+- Guillem Espín Martí
+- Aleix Clavell Martínez
 
-Per executar el script, necessitem instal·lar les següents llibreries:
+### Arxius que trobareu en aquest repositori:
+- README.md: Instruccións i infomració bàsica i rellevant del projecte.
+- requirements.txt: Fitxer on emmagatzemem el versionat dels paquets necessaris per fer funcionar el projecte.
+- Carpeta /source: Carpeta principal d'emmagatzemament del codi en Python.
+  - scrapper.py: Fitxer únic en Python el cual conté tot el codi.
+- Carpeta /dataset: Dataset resultant en format CSV del script.
+
+### Instruccións d'ús:
+1- Executar el script fent ús de la següent comanda:
 ```
-LIBRARIES HERE
+python /source/scrapper.py
 ```
-
-Per executar el script, hem d'utilizar la següent comanda:
+2- Esperar a visualitzar el missatge final d'execució per CLI:
 ```
-python NAME OF THE SCRIPT CLI ENTRY POINT HERE
-```
-
-EXPLAIN CLI OPTIONS
-
-EXPLAIN WHAT THE CODE DOES HERE
-
-
-## English
-
-EXPLAIN WHAT THIS SCRIPT DOES HERE
-
-To execute the script, we need to install the following libraries:
-```
-LIBRARIES HERE
+Scrapping was completed sucecssfully, results saved in csv.
 ```
 
-To execute the script, we need to run the following command:
-```
-python NAME OF THE SCRIPT CLI ENTRY POINT HERE
-```
-
-EXPLAIN CLI OPTIONS
-
-EXPLAIN WHAT THE CODE DOES HERE
+### DOI de Zenodo:
+- BLABLABLA
