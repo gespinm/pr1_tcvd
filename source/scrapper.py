@@ -37,7 +37,7 @@ def main(url, save_csv):
     if html:
         data = _parse_data(html)
         _save_to_csv(data, _OUTPUT_FILEPATH)
-        print(f"Data saved to {_OUTPUT_FILEPATH}")
+        print(f"Scrapping was completed sucecssfully, results saved in csv: {_OUTPUT_FILEPATH}")
 
 if __name__ == "__main__":
     main()
