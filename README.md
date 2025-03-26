@@ -10,6 +10,8 @@
 - Carpeta /source: Carpeta principal d'emmagatzemament del codi en Python.
   - scrapper.py: Fitxer únic en Python el cual conté tot el codi.
 - Carpeta /dataset: Dataset resultant en format CSV del script.
+  - dataset.csv: Fitxer resultant en format csv.
+
 
 ### Instruccións d'ús:
 1- Executar el script fent ús de la següent comanda:
