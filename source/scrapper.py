@@ -31,7 +31,7 @@ def _save_to_csv(data, output_file):
 
 @click.command()
 @click.option('--url', required=False, default="https://www.google.es?", help='Target URL to scrape')
-@click.option('--save-csv', required=False, default=True, help='Save locally the output in a CSV file')
+@click.option('--save-csv', required=False, is_flag=True, default=False, help='Save locally the output in a CSV file')
 def main(url, save_csv):
     html = _fetch_data(url)
     if html:
