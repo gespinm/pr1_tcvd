@@ -2,6 +2,10 @@ import click
 import csv
 import requests
 from bs4 import BeautifulSoup
+import os
+
+_OUTPUT_FILEPATH = "/dataset/dataset.csv"
+
 
 def _fetch_data(url):
     """Fetch data from the given URL."""
@@ -20,19 +24,20 @@ def _parse_data(html):
 
 def _save_to_csv(data, output_file):
     """Save extracted data to a CSV file."""
+    os.makedirs(os.path.dirname(output_file), exist_ok=True)
     with open(output_file, 'w', newline='', encoding='utf-8') as file:
         writer = csv.writer(file)
         writer.writerows(data)
 
 @click.command()
-@click.option('--url', required=True, help='Target URL to scrape')
-@click.option('--output', required=True, help='Output CSV file path')
-def main(url, output):
+@click.option('--url', required=False, default="https://www.google.es?", help='Target URL to scrape')
+@click.option('--save-csv', required=False, default=True, help='Save locally the output in a CSV file')
+def main(url, save_csv):
     html = _fetch_data(url)
     if html:
         data = _parse_data(html)
-        _save_to_csv(data, output)
-        print(f"Data saved to {output}")
+        _save_to_csv(data, _OUTPUT_FILEPATH)
+        print(f"Data saved to {_OUTPUT_FILEPATH}")
 
 if __name__ == "__main__":
     main()
