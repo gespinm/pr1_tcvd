@@ -14,14 +14,18 @@
 
 
 ### Instruccións d'ús:
+#### Passos:
 1- Executar el script fent ús de la següent comanda:
 ```
-python /source/scrapper.py
+python .\source\scrapper.py --save-csv
 ```
 2- Esperar a visualitzar el missatge final d'execució per CLI:
 ```
-Scrapping was completed sucecssfully, results saved in csv.
+Scrapping was completed sucecssfully, results saved in csv /dataset/dataset.csv
 ```
+#### Opcions:
+--url: Permet afegir una url alternativa a la que fem servir per defecte.
+--save-csv: Flag que ens permet emmagatzemar els resultats en csv localment, per defecte no s'emmagatzemen.
 
 ### DOI de Zenodo:
 - BLABLABLA
