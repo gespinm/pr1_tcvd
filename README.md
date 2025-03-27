@@ -27,8 +27,8 @@ python .\source\scrapper.py --save-csv
 Scrapping was completed sucecssfully, results saved in csv: dataset.csv
 ```
 #### Opcions:
---url: Permet afegir una url alternativa a la que fem servir per defecte (No es garanteix el bon funcionament).
---save-csv: Flag que ens permet emmagatzemar els resultats en csv localment, per defecte no s'emmagatzemen.
+* --url: Permet afegir una url alternativa a la que fem servir per defecte (No es garanteix el bon funcionament).
+* --save-csv: Flag que ens permet emmagatzemar els resultats en csv localment, per defecte no s'emmagatzemen.
 
 ### DOI de Zenodo:
 - BLABLABLA
