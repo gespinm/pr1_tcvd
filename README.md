@@ -8,8 +8,10 @@
 - requirements.txt: Fitxer on emmagatzemem el versionat dels paquets necessaris per fer funcionar el projecte.
 - Carpeta /source: Carpeta principal d'emmagatzemament del codi en Python.
   - scrapper.py: Fitxer únic en Python el cual conté tot el codi.
-- Carpeta /dataset: Dataset resultant en format CSV del script.
+- Carpeta /dataset: Dataset resultant en format CSV i PNG del script.
   - dataset.csv: Fitxer resultant en format csv.
+  - plot.png: Representació grafica del resultat en format png.
+
 
 
 ### Instruccións d'ús:
@@ -29,6 +31,7 @@ Scrapping was completed sucecssfully, results saved in csv: dataset.csv
 #### Opcions:
 * --url: Permet afegir una url alternativa a la que fem servir per defecte (No es garanteix el bon funcionament).
 * --save-csv: Flag que ens permet emmagatzemar els resultats en csv localment, per defecte no s'emmagatzemen.
+* --save-png: Flag que ens permet emmagatzemar els resultats en png localment, per defecte no s'emmagatzemen.
 
 ### DOI de Zenodo:
 - BLABLABLA
