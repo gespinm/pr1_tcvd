@@ -24,7 +24,8 @@ python .\source\scrapper.py --save-csv
 ```
 2- Esperar a visualitzar el missatge final d'execució per CLI:
 ```
-Scrapping was completed sucecssfully, results saved in csv: dataset.csv
+Scrapping was completed sucecssfully
+  - Results saved in csv: dataset.csv
 ```
 #### Opcions:
 * --url: Permet afegir una url alternativa a la que fem servir per defecte (No es garanteix el bon funcionament).
