@@ -67,7 +67,7 @@ def _save_to_csv(data):
     """Save extracted data to a CSV file."""
     os.makedirs(os.path.dirname(_OUTPUT_FOLDER), exist_ok=True)
     data_rows = data.values.tolist()
-    with open(_OUTPUT_FOLDER +_OUTPUT_FILEPATH, 'w', newline='', encoding='utf-8') as file:
+    with open(_OUTPUT_FOLDER + _OUTPUT_FILEPATH, 'w', newline='', encoding='utf-8') as file:
         writer = csv.writer(file)
         writer.writerow(data.columns)
         writer.writerows(data_rows)
