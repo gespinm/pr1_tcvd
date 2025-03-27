@@ -53,12 +53,11 @@ def _save_to_png(data):
     """Save extracted data to a PNG file."""
     os.makedirs(os.path.dirname(_OUTPUT_FOLDER), exist_ok=True)
 
+    data = data.sort_values(by=data.columns[1], ascending=False)
+
     plt.figure(figsize=(30, 20))
-
-    data = data.sort_values(by=data.columns[1], ascending=False)  # Sort by GDP descending
-    plt.bar(data.iloc[:, 0], data.iloc[:, 1])  # Vertical bar plot
-    plt.xticks(rotation=90)  # Rotate labels for readability
-
+    plt.bar(data.iloc[:, 0], data.iloc[:, 1])
+    plt.xticks(rotation=90)
     plt.savefig(_OUTPUT_FOLDER + _OUTPUT_PNG_FILEPATH)
     plt.close()
 
@@ -66,8 +65,9 @@ def _save_to_png(data):
 def _save_to_csv(data):
     """Save extracted data to a CSV file."""
     os.makedirs(os.path.dirname(_OUTPUT_FOLDER), exist_ok=True)
+    
     data_rows = data.values.tolist()
-    with open(_OUTPUT_FOLDER +_OUTPUT_FILEPATH, 'w', newline='', encoding='utf-8') as file:
+    with open(_OUTPUT_FOLDER + _OUTPUT_FILEPATH, 'w', newline='', encoding='utf-8') as file:
         writer = csv.writer(file)
         writer.writerow(data.columns)
         writer.writerows(data_rows)
