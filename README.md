@@ -2,7 +2,6 @@
 
 ### Integrants del grup:
 - Guillem Espín Martí
-- Aleix Clavell Martínez
 
 ### Arxius que trobareu en aquest repositori:
 - README.md: Instruccións i infomració bàsica i rellevant del projecte.
