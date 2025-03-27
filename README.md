@@ -12,8 +12,6 @@
   - dataset.csv: Fitxer resultant en format csv.
   - plot.png: Representació grafica del resultat en format png.
 
-
-
 ### Instruccións d'ús:
 #### Passos:
 0- Instal·lar totes les dependències amb la següent comanda:
@@ -34,4 +32,4 @@ Scrapping was completed sucecssfully, results saved in csv: dataset.csv
 * --save-png: Flag que ens permet emmagatzemar els resultats en png localment, per defecte no s'emmagatzemen.
 
 ### DOI de Zenodo:
-- BLABLABLA
+* https://doi.org/10.5281/zenodo.15096606
