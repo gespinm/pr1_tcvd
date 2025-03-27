@@ -2,7 +2,6 @@
 
 ### Integrants del grup:
 - Guillem Espín Martí
-- Aleix Clavell Martínez
 
 ### Arxius que trobareu en aquest repositori:
 - README.md: Instruccións i infomració bàsica i rellevant del projecte.
@@ -15,16 +14,20 @@
 
 ### Instruccións d'ús:
 #### Passos:
+0- Instal·lar totes les dependències amb la següent comanda:
+```
+pip install -r requirements.txt
+```
 1- Executar el script fent ús de la següent comanda:
 ```
 python .\source\scrapper.py --save-csv
 ```
 2- Esperar a visualitzar el missatge final d'execució per CLI:
 ```
-Scrapping was completed sucecssfully, results saved in csv /dataset/dataset.csv
+Scrapping was completed sucecssfully, results saved in csv: dataset.csv
 ```
 #### Opcions:
---url: Permet afegir una url alternativa a la que fem servir per defecte.
+--url: Permet afegir una url alternativa a la que fem servir per defecte (No es garanteix el bon funcionament).
 --save-csv: Flag que ens permet emmagatzemar els resultats en csv localment, per defecte no s'emmagatzemen.
 
 ### DOI de Zenodo:
