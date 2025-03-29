@@ -12,6 +12,7 @@ _OUTPUT_FOLDER = "dataset/"
 _OUTPUT_FILEPATH = "dataset.csv"
 _OUTPUT_PNG_FILEPATH = "plot.png"
 _DEFAULT_PAGE = "https://en.wikipedia.org/wiki/List_of_countries_by_GDP_(nominal)"
+_BASE_PAGE = "https://en.wikipedia.org"
 
 
 def _fetch_data(url):
@@ -35,7 +36,7 @@ def _parse_data(html):
         if cols:
             rows.append([col.text.strip() for col in cols])
 
-    df = pd.DataFrame(rows, columns=['Country/Territory', 'Forecast (IMF)', 'Year (IMF)', 'Estimate (WB)', 'Year (WB)', 'Estimate (UN)', 'Year (UN)',])
+    df = pd.DataFrame(rows, columns=["Country/Territory", "Forecast (IMF)", "Year (IMF)", "Estimate (WB)", "Year (WB)", "Estimate (UN)", "Year (UN)"])
 
     df.replace('', np.nan, inplace=True)
     df.iloc[:, 1:-3] = df.iloc[:, 1:-3].replace({r'[^\d.]': '', r',': ''}, regex=True)
@@ -47,6 +48,32 @@ def _parse_data(html):
     df.iloc[:, -3:] = df.iloc[:, -3:].fillna(-1).astype(int)
         
     return df
+
+
+def _discover_data(html):
+    """Parse the retrieved HTML on aditional data, extract it and clean it."""
+    soup = BeautifulSoup(html, 'html.parser')
+    target_url = None
+    for link in soup.find_all('a'):
+        if link.get('title') == "List of countries by GDP (PPP)":
+            target_url = _BASE_PAGE + link.get('href')
+            break
+    if not target_url:
+        raise ValueError("Target page not found while discovering adittional data")
+
+    response = requests.get(target_url)
+    soup = BeautifulSoup(response.text, 'html.parser')
+    table = soup.find("table", class_="wikitable")
+    if not table:
+        raise ValueError("Table not found while discovering adittional data")
+    rows = []
+    for tr in table.find_all('tr')[1:]:
+        cols = [td.text.strip() for td in tr.find_all('td')]
+        if len(cols) >= 7:
+            rows.append(cols[:7])
+    df = pd.DataFrame(rows, columns=["Country/Territory", "Forecast (IMF)", "Year (IMF)", "Estimate (WB)", "Year (WB)", "Estimate (CIA)", "Year (CIA)"])
+    print("\n RESULTS FROM DISCOVERING ADDITIONAL DATA:")
+    print(df)
 
 
 def _save_to_png(data):
@@ -81,6 +108,7 @@ def main(url, save_csv:bool, save_png:bool):
     html = _fetch_data(url)
     if html:
         data = _parse_data(html)
+        _discover_data(html)
         if not data.empty:
             print("Data scraping was successfull")
             if save_csv:
